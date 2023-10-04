@@ -1,0 +1,19 @@
+package spring.di.ex3;
+
+public class SawonData {
+	private String sawonname;
+	private int pay;
+	private String ipsaday;
+	
+	
+	public SawonData() {
+		
+	}
+	
+	//사원명은 생성자 주입
+	public SawonData(String name) {
+		sawonname = name;
+	}
+	
+	//급여, 입사일 setter주입
+}

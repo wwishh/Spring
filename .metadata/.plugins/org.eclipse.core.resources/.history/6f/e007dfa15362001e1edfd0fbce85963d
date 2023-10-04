@@ -1,0 +1,8 @@
+package framework.di.test;
+
+public class HelloMain {
+	public static void main(String[] args) {
+		
+		System.out.println("자바방식으로 hello메소드 호출하기");
+	}
+}

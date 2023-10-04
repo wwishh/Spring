@@ -1,0 +1,9 @@
+package spring.anno.ex4;
+
+public class logicController {
+	DaoInter daoInter;
+	
+	public logicController() {
+		// TODO Auto-generated constructor stub
+	}
+}

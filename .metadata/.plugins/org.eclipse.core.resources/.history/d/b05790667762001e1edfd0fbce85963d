@@ -1,0 +1,13 @@
+package spring.anno.ex6;
+
+public class TestDao {
+	public void insert(String irum) {
+		System.out.println(irum+"¥‘ dbø° √ﬂ∞°µ ");
+	}
+	public void delete(String no) {
+		System.out.println(no+"π¯ µ•¿Ã≈Õ ªË¡¶µ ");
+	}
+	public void select(String irum) {
+		
+	}
+}

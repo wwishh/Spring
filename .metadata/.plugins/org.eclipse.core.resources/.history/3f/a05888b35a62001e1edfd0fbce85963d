@@ -1,0 +1,8 @@
+package spring.di.ex2;
+
+public class Person {
+	String schoolName;
+	MyInfo info;
+	
+	
+}

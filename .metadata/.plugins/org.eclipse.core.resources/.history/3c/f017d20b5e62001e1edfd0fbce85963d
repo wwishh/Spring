@@ -1,0 +1,17 @@
+package spring.di.ex3;
+
+public class SawonData {
+	private String sawonname;
+	private int pay;
+	private String ipsaday;
+	
+	
+	public SawonData() {
+		
+	}
+	
+	
+	public SawonData(String name) {
+		
+	}
+}
