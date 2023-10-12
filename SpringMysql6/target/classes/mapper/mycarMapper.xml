@@ -23,6 +23,8 @@
   		delete from mycar where num=#{num} 
   	</delete>
   	
+  	
+  	<!-- update -->
   	<select id="getDataOfMyCar" resultType="mdto" parameterType="String">
   		select * from mycar where num=#{num}
   	</select>
