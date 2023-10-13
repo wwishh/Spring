@@ -19,12 +19,12 @@
 <body>
 <h3>ex2번 예제</h3>
 <br>
-<button type="button" id="btn2" class="btn btn-danger">list2 json데이터 출력하기</button>
+<button type="button" id="btn1" class="btn btn-danger">list2 json데이터 출력하기</button>
 
 <div id="out1"></div>
 
 <script>
-	$("#btn2").click(function(){
+	$("#btn1").click(function(){
 		$.ajax({
 			type:"get",
 			dataType:"json",
