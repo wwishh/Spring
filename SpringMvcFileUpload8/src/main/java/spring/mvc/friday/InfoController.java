@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -22,12 +25,24 @@ public class InfoController {
 	InfoInter inter;
 	
 	@GetMapping("/info/list")
-	public String getToalCount(Model model) {
+	public String getToalCount(Model model, @RequestParam(defaultValue = "name") String title,
+			@RequestParam(required = false) String search) {
 		
-		List<InfoDto> list = inter.getAllInfos();
+		//List<InfoDto> list = inter.getAllInfos();
+		
+		System.out.println(title+","+search);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("search", search);
+		map.put("title", title);
+		
+		List<InfoDto> list = inter.getAllInfos(map);
 		
 		model.addAttribute("count", inter.getTotalCount());
 		model.addAttribute("list", list);
+		//model.addAttribute("search", search);
+		//model.addAttribute("title", title);
+		//±ª¿Ã add æ»«ÿ¡‡µµ µ 
 		
 		return "info/infolist";
 	}
