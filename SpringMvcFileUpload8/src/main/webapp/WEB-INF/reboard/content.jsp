@@ -17,29 +17,51 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table class="table table-bordered" style="width: 600px">
-		<tr>
-			<th>${dto.num}</th>
-			<th>${dto.subject }</th>
-			<th><fmt:formatDate value="${dto.writeday }"
-					pattern="yyyy-MM-dd" /></th>
-			<th>${dto.writer }</th>
-		</tr>
+	<div style="margin: 50px 50px">
+		<table class="table table-bordered" style="width: 600px">
+			<caption align="top">
+				<b>상세 페이지</b>
+			</caption>
+			<tr>
+				<th>${dto.num}</th>
+				<th>${dto.subject }</th>
+				<th><fmt:formatDate
+						value="${dto.writeday }"
+						pattern="yyyy-MM-dd" />&nbsp;&nbsp;조회수 ${dto.readcount }</th>
+				<th>${dto.writer }</th>
+			</tr>
 
-		<tr>
-			<c:if test="${dto.photo!='no' }">
-				<td colspan="2"><c:forEach var="p" items="${dto.photo }">
-						<img src="../upload/${p }" width="200px">
-					</c:forEach></td>
-			</c:if>
+			<tr>
+				<c:if test="${dto.photo!='no' }">
+					<td colspan="2"><c:forEach var="p" items="${dto.photo }">
+							<img src="../upload/${p }"
+								style="width: 150px; height: 150px; border: 2px solid black">
+						</c:forEach></td>
+				</c:if>
 
-			<c:if test="${dto.photo=='no' }">
-			<td colspan="2">
-				<img src="../photo/noimage.png" width="200px"></td>
-			</c:if>
+				<c:if test="${dto.photo=='no' }">
+					<td colspan="2"><img src="../photo/noimage.png"
+						style="width: 150px; height: 150px; border: 2px solid black"></td>
+				</c:if>
 
-			<td colspan="2">${dto.content }</td>
-		</tr>
-	</table>
+				<td colspan="2">${dto.content }</td>
+			</tr>
+
+			<tr>
+				<td colspan="4" align="center">
+					<button type="button" class="btn btn-outline-info"
+						onclick="location.href='writeform'">글쓰기</button>
+					<button type="button" class="btn btn-outline-secondary"
+						onclick="location.href='writeform?num=${dto.num}&regroup=${dto.regroup }&restep=${dto.restep }&relevel=${dto.relevel }&currentPage=${currentPage }'">답글</button>
+					<button type="button" class="btn btn-outline-warning"
+						onclick="location.href='updatepassform?num=${dto.num }&currentPage=${currentPage}'">수정</button>
+					<button type="button" class="btn btn-outline-danger"
+						onclick="location.href='deletepassform?num=${dto.num }&currentPage=${currentPage}'">삭제</button>
+					<button type="button" class="btn btn-outline-success"
+						onclick="location.href='list?currentPage=${currentPage}'">목록</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

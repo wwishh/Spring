@@ -30,8 +30,29 @@
 		select * from reboard order by regroup desc, restep asc limit #{start}, #{perpage}
 	</select>
 	
-	<!-- 디테일 페이지 -->
+	<!-- getdata -->
 	<select id="getDataOfReboard" resultType="bdto" parameterType="int">
 		select * from reboard where num=#{num}
 	</select>
+	
+	<!-- 조회 수 1 증가 -->
+	<update id="updateReadcount" parameterType="int">
+		update reboard set readcount=readcount+1 where num=#{num}
+	</update>
+	
+	<select id="checkpassEqualOfReboard" parameterType="HashMap" resultType="int">
+		select count(*) from reboard where num=#{num} and pass=#{pass}
+	</select>
+	
+	<update id="updateDetailPage" parameterType="bdto">
+		update reboard set writer=#{writer}, subject=#{subject}, content=#{content} 
+		<if test="photo!=null">
+		, photo=#{photo}
+		</if>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteDetailPage" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
 </mapper>

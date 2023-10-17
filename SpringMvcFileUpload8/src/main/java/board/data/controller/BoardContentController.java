@@ -19,6 +19,9 @@ public class BoardContentController {
 		
 		ModelAndView model = new ModelAndView();
 		
+		//조회수 증가
+		dao.updateReadcount(num);
+		
 		BoardDto dto = dao.getDataReboard(num);
 		
 		model.addObject("dto", dto);

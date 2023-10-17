@@ -89,4 +89,38 @@ public class BoardDao implements BoardDaoInter {
 		return session.selectOne("getDataOfReboard", num);
 	}
 
+
+	@Override
+	public void updateReadcount(int num) {
+		// TODO Auto-generated method stub
+		session.update("updateReadcount", num);
+	}
+
+
+	@Override
+	public int getCheckPass(int num, int pass) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("num", num);
+		map.put("pass", pass);
+		
+		return session.selectOne("checkpassEqualOfReboard", map); //결과값이 행 하나이면 one을 사용  
+	}
+
+
+	@Override
+	public void updateDetail(BoardDto dto) {
+		// TODO Auto-generated method stub
+		session.update("updateDetailPage", dto);
+	}
+
+
+	@Override
+	public void deleteDetail(int num) {
+		// TODO Auto-generated method stub
+		session.delete("deleteDetailPage", num);
+		
+	}
+
 }

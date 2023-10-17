@@ -56,7 +56,7 @@ public class BoardWriteController {
 	}
 	
 	@PostMapping("/board/insert")
-	public String insert(BoardDto dto, @RequestParam ArrayList<MultipartFile> uimage, HttpSession session) {
+	public String insert(BoardDto dto, String currentPage, @RequestParam ArrayList<MultipartFile> uimage, HttpSession session) {
 		
 		//실제경로
 		String path = session.getServletContext().getRealPath("/WEB-INF/photo");
@@ -94,8 +94,10 @@ public class BoardWriteController {
 		//insert
 		dao.insertReboard(dto);
 		
+		int num = dao.getMaxNum();
 		
-		return "redirect:list"; // 일단 content가 없으니까 목록으로 
+		
+		return "redirect:content?num=" +num+ "&currentPage=" + currentPage; // 일단 content가 없으니까 목록으로 
 	}
 	
 }
